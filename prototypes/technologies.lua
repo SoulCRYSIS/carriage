@@ -1,0 +1,23 @@
+data:extend({
+  {
+    type = "technology",
+    name = "carriage_transport",
+    icon = GRAPHICSPATH .. "technology/carriage.png",
+    icon_size = 256,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "carriage"
+      },
+    },
+    prerequisites = { "logistics-1" },
+    unit = {
+      count = 20,
+      ingredients = {
+        { "automation-science-pack", 1 },
+      },
+      time = 10
+    },
+    order = "c-g-a",
+  },
+})

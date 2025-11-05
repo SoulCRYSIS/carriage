@@ -1,0 +1,1 @@
+GRAPHICSPATH = "__cargo-ships-graphics__/graphics/"

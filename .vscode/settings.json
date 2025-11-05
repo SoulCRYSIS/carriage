@@ -33,5 +33,6 @@
     "Lua.workspace.userThirdParty": [
         "/Users/user01/Library/Application Support/Cursor/User/workspaceStorage/f9bcaa17d2e69316bcb8e12b25c97bfd/justarandomgeek.factoriomod-debug/sumneko-3rd"
     ],
-    "Lua.workspace.checkThirdParty": "ApplyInMemory"
+    "Lua.workspace.checkThirdParty": "ApplyInMemory",
+    "editor.tabSize": 2,
 }
