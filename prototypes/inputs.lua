@@ -15,9 +15,9 @@ data:extend{
     associated_control_input = "give-route",
     technology_to_unlock = "carriage_transport",
     --style = "blue",
-    icon = GRAPHICSPATH .. "icons/route-shortcut-x56.png",
+    icon = GRAPHICSPATH .. "icon/route-shortcut-x56.png",
     icon_size = 56,
-    small_icon = GRAPHICSPATH .. "icons/route-shortcut-x24.png",
+    small_icon = GRAPHICSPATH .. "icon/route-shortcut-x24.png",
     small_icon_size = 24,
   }
 }

@@ -1,7 +1,7 @@
 require "util"
-require "__carriage__/logic/carriage_api"
-require "__carriage__/logic/carriage_placement"
-require "__carriage__/logic/blueprint_fix"
+require "logic/carriage_api"
+require "logic/carriage_placement"
+require "logic/blueprint_fix"
 
 
 is_route = util.list_to_map {
@@ -467,15 +467,6 @@ local function init()
   storage.currently_mining = storage.currently_mining or {}
 
   init_carriage_globals() -- Init database of carriage parameters
-
-  -- Initialize or migrate long reach state
-  storage.last_cursor_stack_name =
-      ((type(storage.last_cursor_stack_name) == "table") and storage.last_cursor_stack_name)
-      or {}
-  storage.last_distance_bonus =
-      ((type(storage.last_distance_bonus) == "number") and storage.last_distance_bonus)
-      or settings.global["route_reach_increase"].value
-  storage.current_distance_bonus = settings.global["route_reach_increase"].value
 
   -- Register conditional events
   init_events()

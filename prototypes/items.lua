@@ -28,11 +28,11 @@ data:extend {
   },
   {
     type = "item-with-entity-data",
-    name = "carriage_engine",
-    icons = data.raw["locomotive"]["cargo_ship_engine"].icons,
+    name = "carriage-engine",
+    icon = data.raw["locomotive"]["locomotive"].icon,
     hidden = true,
-    order = "a[route-system]-z[carriage_engine]",
-    place_result = "cargo_ship_engine",
+    order = "a[route-system]-z[carriage-engine]",
+    place_result = "carriage-engine",
     stack_size = 5,
   },
 }

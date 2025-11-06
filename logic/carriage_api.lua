@@ -21,10 +21,8 @@ local default_offset = {    -- Relative position to place engine for each straig
 }
 
 function create_storage()
-  storage.boat_bodies = storage.boat_bodies or {}
   storage.carriage_engines = storage.carriage_engines or {}
   storage.carriage_bodies = storage.carriage_bodies or {}
-  storage.enter_carriage_entities = storage.enter_carriage_entities or {}
 end
 
 

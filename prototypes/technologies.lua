@@ -10,7 +10,7 @@ data:extend({
         recipe = "carriage"
       },
     },
-    prerequisites = { "logistics-1" },
+    prerequisites = { "logistics" },
     unit = {
       count = 20,
       ingredients = {

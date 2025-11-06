@@ -1,8 +1,9 @@
-require "__carriage__/prototypes/recipes"
-require "__carriage__/prototypes/items"
-require "__carriage__/prototypes/technologies"
-require "__carriage__/prototypes/inputs"
+require "constants"
 
-require "__carriage__/prototypes/route/route"
-require "__carriage__/prototypes/route/route_pictures"
-require "__carriage__/prototypes/carriage"
+require "prototypes/recipes"
+require "prototypes/items"
+require "prototypes/technologies"
+require "prototypes/inputs"
+
+require "prototypes/route/route"
+require "prototypes/carriage"

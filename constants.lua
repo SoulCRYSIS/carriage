@@ -1,1 +1,1 @@
-GRAPHICSPATH = "__cargo-ships-graphics__/graphics/"
+GRAPHICSPATH = "__carriage__/graphics/"

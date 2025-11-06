@@ -11,6 +11,18 @@ ZIP_NAME="${MOD_FOLDER}.zip"
 FACTORIO_MODS_DIR="$HOME/Library/Application Support/factorio/mods"
 TEMP_DIR="/tmp/${MOD_FOLDER}"
 
+# List of files and folders to include in the package
+FILES_TO_INCLUDE=(
+    "info.json"
+    "data.lua"
+    "control.lua"
+    "settings.lua"
+    "constants.lua"
+    "graphics"
+    "logic"
+    "prototypes"
+)
+
 # Change to the script directory
 cd "$SCRIPT_DIR"
 
@@ -32,15 +44,14 @@ mkdir -p "$TEMP_DIR"
 
 # Copy mod files to temp directory
 echo "Copying mod files..."
-cp info.json "$TEMP_DIR/"
-cp data.lua "$TEMP_DIR/"
-cp control.lua "$TEMP_DIR/"
-cp settings.lua "$TEMP_DIR/"
-
-# Copy assets if they exist
-if [ -d "graphics" ]; then
-    cp -r graphics "$TEMP_DIR/"
-fi
+for item in "${FILES_TO_INCLUDE[@]}"; do
+    if [ -e "$item" ]; then
+        echo "  Copying $item..."
+        cp -r "$item" "$TEMP_DIR/"
+    else
+        echo "  Warning: $item not found, skipping..."
+    fi
+done
 
 # Change to parent directory of temp folder and create zip
 echo "Creating $ZIP_NAME..."

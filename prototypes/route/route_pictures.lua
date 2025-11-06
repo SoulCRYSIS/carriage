@@ -61,7 +61,7 @@ local function make_legacy_rail_pictures(elems, rail_type)
       end
       part[elem[1]] =
       {
-        filename = string.format("__cargo-ships-graphics__/graphics/entity/legacy-%s/%s-%s-%s.png", dashkey,
+        filename = string.format("__carriage__/graphics/entity/legacy-%s/%s-%s-%s.png", dashkey,
           dashkey, key[2], elem[2]),
         priority = elem.priority or "extra-high",
         flags = elem.mipmap and { "trilinear-filtering" } or { "low-object" },
