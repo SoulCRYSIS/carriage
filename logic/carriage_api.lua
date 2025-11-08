@@ -169,7 +169,7 @@ function init_carriage_globals()
   add_carriage({
     name = "carriage",
     engine = "carriage-engine",
-    engine_scale = 1,
+    engine_scale = 0.3,
     engine_at_front = false,
   })
 

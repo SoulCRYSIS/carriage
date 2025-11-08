@@ -10,10 +10,10 @@ carriage.minable = { mining_time = 0.5, result = "carriage" }
 carriage.max_health = 250
 -- carriage.corpse = "carriage-remnants"
 carriage.collision_box = { { -1, -1.5 }, { 1, 1.5 } }
-carriage.selection_box = { { -1, -1.55 }, { 1, 1.55 } }
+carriage.selection_box = { { -1, -1.5 }, { 1, 1.5 } }
+carriage.connection_distance = 2
+carriage.joint_distance = 1.3
 carriage.selection_priority = 51
-carriage.connection_distance = 3
-carriage.joint_distance = 0.4
 carriage.weight = 1000
 carriage.inventory_size = 10
 carriage.max_speed = carriage_max_speed
@@ -31,6 +31,7 @@ carriage.pictures = {
         line_length = 4,
         lines_per_file = 8,
         scale = 1,
+        shift = {0, -0.5},
       },
       {
         priority = "low",
@@ -43,6 +44,7 @@ carriage.pictures = {
         lines_per_file = 8,
         scale = 1,
         draw_as_shadow = true,
+        shift = {0, -0.5},
       }
     }
   }
@@ -79,10 +81,10 @@ carriage_engine.max_speed = carriage_max_speed
 carriage_engine.max_power = "200kW"
 carriage_engine.air_resistance = 0.1
 carriage_engine.collision_box = { { -1, -1 }, { 1, 1 } }
-carriage_engine.selection_box = { { -1, -1.1 }, { 1, 1.1 } }
+carriage_engine.selection_box = { { -1, -1 }, { 1, 1 } }
 carriage_engine.selection_priority = 51
-carriage_engine.connection_distance = 3
-carriage_engine.joint_distance = 0.4
+carriage_engine.connection_distance = 2
+carriage_engine.joint_distance = 0.8
 carriage_engine.pictures = nil
 carriage_engine.minimap_representation = nil
 carriage_engine.selected_minimap_representation = nil
