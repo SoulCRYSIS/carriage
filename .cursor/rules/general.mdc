@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+
+This project is a factorio mod.
+Designed to run on factorio version 2.0 with space-age DLC.
+Brief purpose of the mod is to create a mini-train entity, the differents are its has no seperation of locomotive and cargo (the mod should auto create invisible locomotive), and run on different rail type (route).
