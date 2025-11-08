@@ -5,13 +5,13 @@ function FixPipette(event)
   local item = event.item
   --game.print("pipetted "..item.name)
 
-  if storage.ship_engines[item.name] then
+  if storage.carriage_engines[item.name] then
     --cursor.clear()
     if selected then
       local otherstock = selected.get_connected_rolling_stock(defines.rail_direction.front) or 
                          selected.get_connected_rolling_stock(defines.rail_direction.back)
       if otherstock then
-        -- Pipette the ship body instead
+        -- Pipette the carriage body instead
         player.pipette(otherstock.prototype, otherstock.quality, true)
       end
     end

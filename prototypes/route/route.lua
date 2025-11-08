@@ -59,7 +59,7 @@ data:extend({
     tile_buildability_rules = {
       {
         area = { { -0.95, -0.95 }, { 0.95, 0.95 } },
-        required_tiles = { layers = { floor = true } },
+        required_tiles = { layers = { ground_tile = true } },
         remove_on_collision = true
       }
     },
@@ -84,7 +84,7 @@ data:extend({
     tile_buildability_rules = {
       {
         area = { { -0.95, -1.95 }, { 0.95, 2.95 } },
-        required_tiles = { layers = { floor = true } },
+        required_tiles = { layers = { ground_tile = true } },
         remove_on_collision = true
       }
     },
@@ -102,7 +102,7 @@ data:extend({
     tile_buildability_rules = {
       {
         area = { { -0.95, -0.95 }, { 0.95, 0.95 } },
-        required_tiles = { layers = { floor = true } },
+        required_tiles = { layers = { ground_tile = true } },
         remove_on_collision = true
       }
     },
@@ -128,7 +128,7 @@ data:extend({
     tile_buildability_rules = {
       {
         area = { { -0.75, -2.236 }, { 0.75, 2.236 } },
-        required_tiles = { layers = { floor = true } },
+        required_tiles = { layers = { ground_tile = true } },
         remove_on_collision = true
       }
     },
@@ -155,7 +155,7 @@ data:extend({
     tile_buildability_rules = {
       {
         area = { { -0.75, -2.516 }, { 0.75, 2.516 } },
-        required_tiles = { layers = { floor = true } },
+        required_tiles = { layers = { ground_tile = true } },
         remove_on_collision = true
       }
     },
@@ -181,7 +181,7 @@ data:extend({
     tile_buildability_rules = {
       {
         area = { { -0.75, -2.441 }, { 0.75, 2.441 } },
-        required_tiles = { layers = { floor = true } },
+        required_tiles = { layers = { ground_tile = true } },
         remove_on_collision = true
       }
     },

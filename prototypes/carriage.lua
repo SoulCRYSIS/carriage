@@ -9,10 +9,10 @@ carriage.allow_copy_paste = true
 carriage.minable = { mining_time = 0.5, result = "carriage" }
 carriage.max_health = 250
 -- carriage.corpse = "carriage-remnants"
-carriage.collision_box = { { -0.2, -0.4 }, { 0.2, 0.4 } }
-carriage.selection_box = { { -0.2, -0.45 }, { 0.2, 0.45 } }
+carriage.collision_box = { { -1, -1.5 }, { 1, 1.5 } }
+carriage.selection_box = { { -1, -1.55 }, { 1, 1.55 } }
 carriage.selection_priority = 51
-carriage.connection_distance = 1
+carriage.connection_distance = 3
 carriage.joint_distance = 0.4
 carriage.weight = 1000
 carriage.inventory_size = 10
@@ -47,8 +47,8 @@ carriage.pictures = {
     }
   }
 }
--- carriage.vertical_doors = nil
--- carriage.horizontal_doors = nil
+carriage.vertical_doors = nil
+carriage.horizontal_doors = nil
 carriage.wheels = nil
 -- carriage.working_sound =
 -- carriage.drive_over_tie_trigger = nil
@@ -65,7 +65,7 @@ carriage.selected_minimap_representation = {
   scale = 0.5
 }
 carriage.corpse = nil
--- carriage.factoriopedia_simulation = nil
+carriage.factoriopedia_simulation = nil
 
 ----- Carriage Engine (Hidden) -----
 local carriage_engine = table.deepcopy(data.raw["locomotive"]["locomotive"])
@@ -78,8 +78,8 @@ carriage_engine.weight = 1000
 carriage_engine.max_speed = carriage_max_speed
 carriage_engine.max_power = "200kW"
 carriage_engine.air_resistance = 0.1
-carriage_engine.collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } }
-carriage_engine.selection_box = { { -0.6, -0.5 }, { 0.6, 0.5 } }
+carriage_engine.collision_box = { { -1, -1 }, { 1, 1 } }
+carriage_engine.selection_box = { { -1, -1.1 }, { 1, 1.1 } }
 carriage_engine.selection_priority = 51
 carriage_engine.connection_distance = 3
 carriage_engine.joint_distance = 0.4

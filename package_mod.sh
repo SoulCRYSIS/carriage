@@ -21,6 +21,7 @@ FILES_TO_INCLUDE=(
     "graphics"
     "logic"
     "prototypes"
+    "locale"
 )
 
 # Change to the script directory

@@ -23,6 +23,7 @@ local default_offset = {    -- Relative position to place engine for each straig
 function create_storage()
   storage.carriage_engines = storage.carriage_engines or {}
   storage.carriage_bodies = storage.carriage_bodies or {}
+  storage.enter_carriage_entities = storage.enter_carriage_entities or {}
 end
 
 
@@ -167,8 +168,8 @@ function init_carriage_globals()
   
   -- Create the built-in carriages and boat
   add_carriage({
-    name = "cargo_carriage",
-    engine = "cargo_carriage_engine",
+    name = "carriage",
+    engine = "carriage_engine",
     engine_scale = 1,
     engine_at_front = false,
   })

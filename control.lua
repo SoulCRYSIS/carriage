@@ -183,35 +183,6 @@ local function OnEntityDeleted(event)
   end
 end
 
-
--- Perform the destroyed action for this unit_number
--- Each method checks if it applies
-function OnObjectDestroyed(event)
-  local unit_number = event.useful_id
-  -- Check if this entity makes space for a route ghost
-  if storage.route_ghosts and storage.route_ghosts[unit_number] then
-    -- try to revive all the routes referenced in this list
-    local keep_list = {}
-    for _, wg in pairs(storage.route_ghosts[unit_number]) do
-      if wg.valid then
-        -- Try to revive this route ghost. If it fails, that's fine, we'll try again when a different colliding entity is destroyed.
-        if not wg.silent_revive { raise_revive = true } then
-          if unit_number == 0 then
-            table.insert(keep_list, wg)
-          end
-        end
-      end
-    end
-    if unit_number == 0 then
-      -- tile proxies all have unit_number 0, keep any non-revived ghosts in that list, since we have to keep coming back to it
-      storage.route_ghosts[unit_number] = keep_list
-    else
-      -- delete list for entity that doesn't exist anymore, regardless of what we did about it
-      storage.route_ghosts[unit_number] = nil
-    end
-  end
-end
-
 -- Robots can try to mine it, but get sent away with something else if there is still cargo
 local function OnRobotPreMined(event)
   if (event.entity and event.entity.valid) then
@@ -328,31 +299,23 @@ end
 function init_events()
   -- entity created, check placement and create invisible elements
   local entity_filters = {
-    { filter = "ghost",        ghost_name = "bridge_gate" },
     { filter = "ghost",        ghost_name = "straight-route" },
     { filter = "ghost",        ghost_name = "half-diagonal-route" },
     { filter = "ghost",        ghost_name = "curved-route-a" },
     { filter = "ghost",        ghost_name = "curved-route-b" },
     { filter = "ghost",        ghost_name = "legacy-straight-route" },
     { filter = "ghost",        ghost_name = "legacy-curved-route" },
-    { filter = "name",         name = "oil_rig" },
-    { filter = "name",         name = "bridge_base" },
     { filter = "rolling-stock" },
     { filter = "rail" }
   }
-  if storage.boat_bodies then
-    for name, _ in pairs(storage.boat_bodies) do
-      table.insert(entity_filters, { filter = "name", name = name })
-    end
-  end
   script.on_event(defines.events.on_built_entity, OnEntityBuilt, entity_filters)
   script.on_event(defines.events.on_robot_built_entity, OnEntityBuilt, entity_filters)
   script.on_event(defines.events.on_entity_cloned, OnEntityBuilt, entity_filters)
   script.on_event(defines.events.script_raised_built, OnEntityBuilt, entity_filters)
   script.on_event(defines.events.script_raised_revive, OnEntityBuilt, entity_filters)
 
-  -- delete invisible oil rig, bridge, and carriage elements
-  local deleted_filters = { { filter = "ghost_name", name = "oil_rig" } }
+  -- delete invisible carriage elements
+  local deleted_filters = {}
   if storage.carriage_bodies then
     for name, _ in pairs(storage.carriage_bodies) do
       table.insert(deleted_filters, { filter = "name", name = name })
@@ -366,9 +329,6 @@ function init_events()
   end
   script.on_event(defines.events.on_entity_died, OnEntityDeleted, deleted_filters)
   script.on_event(defines.events.script_raised_destroy, OnEntityDeleted, deleted_filters)
-
-  -- Handle Oil Rig and Bridge components
-  script.on_event(defines.events.on_object_destroyed, OnObjectDestroyed)
 
   -- recover fuel from mined carriages
   local mined_filters = {}
@@ -438,32 +398,11 @@ function init_events()
       OnGiveRoute(event)
     end
   )
-
-  -- Compatibility with AAI Vehicles (Modify this whenever the list of boats changes)
-  remote.remove_interface("aai-sci-burner")
-  remote.add_interface("aai-sci-burner", {
-    hauler_types = function(data)
-      local types = {}
-      if storage.boat_bodies then
-        for name, _ in pairs(storage.boat_bodies) do
-          table.insert(types, name)
-        end
-      end
-      return types
-    end,
-  })
 end
 
 local function init()
   -- Init storage variables
   storage.check_placement_queue = storage.check_placement_queue or {}
-  storage.oil_rigs = storage.oil_rigs or {}
-  storage.bridges = storage.bridges or {}
-  storage.bridge_destroyed_queue = storage.bridge_destroyed_queue or {}
-  storage.carriage_pump_selected = storage.carriage_pump_selected or {}
-  storage.pump_markers = storage.pump_markers or {}
-  storage.disable_this_tick = storage.disable_this_tick or {}
-  storage.driving_state_locks = storage.driving_state_locks or {}
   storage.currently_mining = storage.currently_mining or {}
 
   init_carriage_globals() -- Init database of carriage parameters
