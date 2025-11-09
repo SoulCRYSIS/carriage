@@ -167,10 +167,10 @@ function init_carriage_globals()
   
   -- Create the built-in carriages and boat
   add_carriage({
-    name = "carriage",
-    engine = "carriage-engine",
+    name = "carriage-engine",
+    engine = "carriage",
     engine_scale = 0.3,
-    engine_at_front = true,
+    engine_at_front = false,
   })
 
   -- List carriage engines

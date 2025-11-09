@@ -9,7 +9,7 @@ data:extend {
       { type = "item", name = "iron-plate",      amount = 10 },
       { type = "item", name = "iron-gear-wheel", amount = 10 },
     },
-    results = { { type = "item", name = "carriage", amount = 1 } },
+    results = { { type = "item", name = "carriage-engine", amount = 1 } },
   },
   {
     type = "recipe",

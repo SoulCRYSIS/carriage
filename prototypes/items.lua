@@ -19,8 +19,8 @@ data:extend {
   {
     type = "item-with-entity-data",
     name = "carriage",
-    icon = GRAPHICSPATH .. "icon/carriage.png",
-    icon_size = 64,
+    icon = data.raw["cargo-wagon"]["cargo-wagon"].icon,
+    hidden = true,
     flags = {},
     order = "a[route-system]-g[carriage]",
     place_result = "carriage",
@@ -29,8 +29,8 @@ data:extend {
   {
     type = "item-with-entity-data",
     name = "carriage-engine",
-    icon = data.raw["locomotive"]["locomotive"].icon,
-    hidden = true,
+    icon = GRAPHICSPATH .. "icon/carriage.png",
+    icon_size = 64,
     order = "a[route-system]-z[carriage-engine]",
     place_result = "carriage-engine",
     stack_size = 5,
