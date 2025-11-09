@@ -35,5 +35,6 @@ waypoint.working_sound = nil
 waypoint.factoriopedia_simulation = nil
 waypoint.light1 = nil
 waypoint.light2 = nil
+waypoint.circuit_wire_max_distance = 0
 
 data:extend({ waypoint })
