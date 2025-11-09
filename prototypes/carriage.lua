@@ -128,7 +128,9 @@ carriage_engine.factoriopedia_simulation = nil
 carriage_engine.corpse = nil
 carriage_engine.back_light = nil
 carriage_engine.front_light = nil
-carriage.stand_by_light = nil
+carriage_engine.stand_by_light = nil
+carriage_engine.resistances = nil
+carriage_engine.max_health = 250
 
 ----- End -----
 data:extend({ carriage, carriage_engine })
