@@ -1,8 +1,9 @@
 from PIL import Image
 import sys
 import os
+from constant import *
 
-def reverse_sprite_sheet(input_file, output_file=None, frame_width=128, frame_height=128, frames_per_row=4):
+def reverse_sprite_sheet(input_file, output_file=None):
     """
     Reverse the rotation direction of frames in a sprite sheet.
     Keeps frame 0 (north/0°) fixed and reverses frames 1-31, so rotation goes
@@ -73,14 +74,6 @@ if __name__ == "__main__":
     else:
         output_file = input_file
     
-    # Optional parameters
-    frame_width = 64
-    frame_height = 64
-    frames_per_row = 8
-    
-    if len(sys.argv) > 3:
-        frames_per_row = int(sys.argv[3])
-    
     # Get script directory and adjust paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(script_dir)
@@ -92,5 +85,5 @@ if __name__ == "__main__":
         print(f"Error: Input file not found: {input_path}")
         sys.exit(1)
     
-    reverse_sprite_sheet(input_path, output_path, frame_width, frame_height, frames_per_row)
+    reverse_sprite_sheet(input_path, output_path)
 
