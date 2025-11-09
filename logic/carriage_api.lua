@@ -170,7 +170,7 @@ function init_carriage_globals()
     name = "carriage",
     engine = "carriage-engine",
     engine_scale = 0.3,
-    engine_at_front = false,
+    engine_at_front = true,
   })
 
   -- List carriage engines

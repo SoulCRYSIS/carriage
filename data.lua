@@ -7,3 +7,4 @@ require "prototypes/inputs"
 
 require "prototypes/route/route"
 require "prototypes/carriage"
+require "prototypes/waypoint"

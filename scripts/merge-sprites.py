@@ -2,8 +2,8 @@ from PIL import Image
 import math
 
 # Configuration
-frame_count = 32
-frames_per_row = 4
+frame_count = 128
+frames_per_row = 8
 frame_folder = "temp_sprites/"          # Folder where individual frames are
 frame_ext = ".png"                 # Frame file extension
 output_file = "spritesheet.png"    # Output sprite sheet

@@ -9,6 +9,10 @@ data:extend({
         type = "unlock-recipe",
         recipe = "carriage"
       },
+      {
+        type = "unlock-recipe",
+        recipe = "waypoint"
+      },
     },
     prerequisites = { "logistics" },
     unit = {

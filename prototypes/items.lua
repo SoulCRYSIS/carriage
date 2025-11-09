@@ -35,4 +35,14 @@ data:extend {
     place_result = "carriage-engine",
     stack_size = 5,
   },
+  {
+    type = "item",
+    name = "waypoint",
+    icon = GRAPHICSPATH .. "icon/waypoint.png",
+    icon_size = 64,
+    flags = {},
+    order = "a[route-system]-b[waypoint]",
+    place_result = "waypoint",
+    stack_size = 10
+  },
 }
