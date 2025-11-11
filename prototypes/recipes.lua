@@ -5,9 +5,9 @@ data:extend {
     enabled = false,
     energy_required = 3,
     ingredients = {
-      { type = "item", name = "wood",            amount = 20 },
-      { type = "item", name = "iron-plate",      amount = 10 },
+      { type = "item", name = "wood",            amount = 10 },
       { type = "item", name = "iron-gear-wheel", amount = 10 },
+      { type = "item", name = "copper-cable", amount = 10 },
     },
     results = { { type = "item", name = "carriage-engine", amount = 1 } },
   },
