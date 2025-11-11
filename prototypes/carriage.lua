@@ -80,24 +80,24 @@ carriage_engine.weight = 1000
 carriage_engine.max_speed = carriage_max_speed
 carriage_engine.max_power = "100kW"
 carriage_engine.air_resistance = 0.001
-carriage_engine.collision_box = { { -0.8, -1 }, { 0.8, 1 } }
-carriage_engine.selection_box = { { -0.8, -1 }, { 0.8, 1 } }
+carriage_engine.collision_box = { { -0.6, -0.8}, { 0.6, 0.8 } }
+carriage_engine.selection_box = { { -0.6, -0.8 }, { 0.6, 0.8 } }
 carriage_engine.selection_priority = 51
 carriage_engine.connection_distance = 2
-carriage_engine.joint_distance = 0.8
+carriage_engine.joint_distance = 0.6
 carriage_engine.pictures = {
   rotated = {
     layers = {
       {
         priority = "low",
-        width = 192,
-        height = 192,
+        width = 128,
+        height = 128,
         direction_count = 128,
         allow_low_quality_rotation = true,
         filename = "__carriage__/graphics/entity/carriage-engine/main.png",
         line_length = 8,
         lines_per_file = 16,
-        scale = 0.67,
+        scale = 0.8,
       },
       {
         priority = "low",
@@ -108,7 +108,7 @@ carriage_engine.pictures = {
         filename = "__carriage__/graphics/entity/carriage-engine/shadow.png",
         line_length = 8,
         lines_per_file = 16,
-        scale = 2,
+        scale = 1.6,
         draw_as_shadow = true,
       }
     }
