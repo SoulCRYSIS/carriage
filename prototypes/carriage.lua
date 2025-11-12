@@ -11,11 +11,11 @@ carriage.hidden_in_factoriopedia = true
 carriage.corpse = nil
 carriage.collision_box = { { -1, -1.5 }, { 1, 1.5 } }
 carriage.selection_box = { { -1, -1.5 }, { 1, 1.5 } }
-carriage.connection_distance = 2
+carriage.connection_distance = 2.2
 carriage.joint_distance = 1.3
 carriage.selection_priority = 51
 carriage.weight = 1000
-carriage.inventory_size = 10
+carriage.inventory_size = 20
 carriage.max_speed = carriage_max_speed
 carriage.air_resistance = 0.001
 carriage.pictures = {
@@ -31,6 +31,7 @@ carriage.pictures = {
         line_length = 8,
         lines_per_file = 16,
         scale = 0.8,
+        shift = { 0, -0.3 },
       },
       {
         priority = "low",
@@ -43,6 +44,7 @@ carriage.pictures = {
         lines_per_file = 16,
         scale = 2.4,
         draw_as_shadow = true,
+        shift = { 0, -0.3 },
       }
     }
   }
@@ -68,6 +70,7 @@ carriage.corpse = nil
 carriage.back_light = nil
 carriage.stand_by_light = nil
 carriage.factoriopedia_simulation = nil
+carriage.allow_passengers = false
 
 ----- Carriage Engine (Hidden) -----
 local carriage_engine = table.deepcopy(data.raw["locomotive"]["locomotive"])
@@ -81,9 +84,9 @@ carriage_engine.max_speed = carriage_max_speed
 carriage_engine.max_power = "100kW"
 carriage_engine.air_resistance = 0.001
 carriage_engine.collision_box = { { -0.6, -0.8 }, { 0.6, 0.8 } }
-carriage_engine.selection_box = { { -0.6, -0.8 }, { 0.6, 0.8 } }
+carriage_engine.selection_box = { { -0.8, -1.0 }, { 0.8, 1.0 } }
 carriage_engine.selection_priority = 51
-carriage_engine.connection_distance = 2
+carriage_engine.connection_distance = 2.2
 carriage_engine.joint_distance = 0.6
 carriage_engine.pictures = {
   rotated = {
@@ -97,7 +100,21 @@ carriage_engine.pictures = {
         filename = "__carriage__/graphics/entity/carriage-engine/main.png",
         line_length = 8,
         lines_per_file = 16,
-        scale = 0.8,
+        scale = 0.7,
+      },
+      {
+        priority = "low",
+        flags = { "mask" },
+        width = 128,
+        height = 128,
+        direction_count = 128,
+        allow_low_quality_rotation = true,
+        filename = "__carriage__/graphics/entity/carriage-engine/mask.png",
+        line_length = 8,
+        lines_per_file = 16,
+        scale = 0.7,
+        apply_runtime_tint = true,
+        blend_mode = "additive",
       },
       {
         priority = "low",
@@ -108,7 +125,7 @@ carriage_engine.pictures = {
         filename = "__carriage__/graphics/entity/carriage-engine/shadow.png",
         line_length = 8,
         lines_per_file = 16,
-        scale = 1.6,
+        scale = 1.4,
         draw_as_shadow = true,
       }
     }
@@ -149,6 +166,8 @@ carriage_engine.front_light = nil
 carriage_engine.stand_by_light = nil
 carriage_engine.resistances = nil
 carriage_engine.max_health = 250
+carriage_engine.allow_passengers = true
+carriage_engine.allow_manual_color = true
 
 ----- End -----
 data:extend({ carriage, carriage_engine })
