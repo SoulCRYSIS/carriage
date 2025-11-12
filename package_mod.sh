@@ -41,6 +41,7 @@ FILES_TO_INCLUDE=(
     "control.lua"
     "settings.lua"
     "constants.lua"
+    "thumbnail.png"
     "graphics"
     "logic"
     "prototypes"
