@@ -2,3 +2,4 @@ temp_sprites/
 blender/
 */__pycache__/
 **/.DS_Store
+*.zip

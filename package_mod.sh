@@ -1,6 +1,29 @@
 #!/bin/bash
 
 # Script to package the Factorio mod and move it to the mods directory
+# Usage: ./package_mod.sh [--local]
+#   --local or -l: Export to current directory instead of Factorio mods folder
+
+# Parse command line arguments
+EXPORT_LOCAL=false
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -l|--local)
+            EXPORT_LOCAL=true
+            shift
+            ;;
+        -h|--help)
+            echo "Usage: $0 [--local]"
+            echo "  --local, -l: Export to current directory instead of Factorio mods folder"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Use --help for usage information"
+            exit 1
+            ;;
+    esac
+done
 
 # Get the directory where the script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -66,24 +89,33 @@ if [ ! -f "/tmp/$ZIP_NAME" ]; then
     exit 1
 fi
 
-# Create the mods directory if it doesn't exist
-if [ ! -d "$FACTORIO_MODS_DIR" ]; then
-    echo "Creating mods directory: $FACTORIO_MODS_DIR"
-    mkdir -p "$FACTORIO_MODS_DIR"
+# Move the zip to the appropriate location
+if [ "$EXPORT_LOCAL" = true ]; then
+    # Move to current directory (where script is located)
+    echo "Moving $ZIP_NAME to current directory..."
+    mv "/tmp/$ZIP_NAME" "$SCRIPT_DIR/"
+    DESTINATION="$SCRIPT_DIR/$ZIP_NAME"
+else
+    # Move to the Factorio mods directory
+    # Create the mods directory if it doesn't exist
+    if [ ! -d "$FACTORIO_MODS_DIR" ]; then
+        echo "Creating mods directory: $FACTORIO_MODS_DIR"
+        mkdir -p "$FACTORIO_MODS_DIR"
+    fi
+    echo "Moving $ZIP_NAME to $FACTORIO_MODS_DIR..."
+    mv "/tmp/$ZIP_NAME" "$FACTORIO_MODS_DIR/"
+    DESTINATION="$FACTORIO_MODS_DIR/$ZIP_NAME"
 fi
-
-# Move the zip to the Factorio mods directory
-echo "Moving $ZIP_NAME to $FACTORIO_MODS_DIR..."
-mv "/tmp/$ZIP_NAME" "$FACTORIO_MODS_DIR/"
 
 # Clean up temp directory
 rm -rf "$TEMP_DIR"
 
-if [ -f "$FACTORIO_MODS_DIR/$ZIP_NAME" ]; then
-    echo "Success! Mod packaged and moved to Factorio mods directory."
-    echo "Location: $FACTORIO_MODS_DIR/$ZIP_NAME"
+# Verify the file was moved successfully
+if [ -f "$DESTINATION" ]; then
+    echo "Success! Mod packaged and exported."
+    echo "Location: $DESTINATION"
 else
-    echo "Error: Failed to move $ZIP_NAME to $FACTORIO_MODS_DIR"
+    echo "Error: Failed to move $ZIP_NAME to destination"
     exit 1
 fi
 

@@ -11,7 +11,7 @@ carriage.hidden_in_factoriopedia = true
 carriage.corpse = nil
 carriage.collision_box = { { -1, -1.5 }, { 1, 1.5 } }
 carriage.selection_box = { { -1, -1.5 }, { 1, 1.5 } }
-carriage.connection_distance = 2.2
+carriage.connection_distance = 2.25
 carriage.joint_distance = 1.3
 carriage.selection_priority = 51
 carriage.weight = 1000
@@ -31,7 +31,7 @@ carriage.pictures = {
         line_length = 8,
         lines_per_file = 16,
         scale = 0.8,
-        shift = { 0, -0.3 },
+        shift = { 0, -0.9 },
       },
       {
         priority = "low",
@@ -44,7 +44,7 @@ carriage.pictures = {
         lines_per_file = 16,
         scale = 2.4,
         draw_as_shadow = true,
-        shift = { 0, -0.3 },
+        shift = { 0, -0.9 },
       }
     }
   }
@@ -86,7 +86,7 @@ carriage_engine.air_resistance = 0.001
 carriage_engine.collision_box = { { -0.6, -0.8 }, { 0.6, 0.8 } }
 carriage_engine.selection_box = { { -0.8, -1.0 }, { 0.8, 1.0 } }
 carriage_engine.selection_priority = 51
-carriage_engine.connection_distance = 2.2
+carriage_engine.connection_distance = 2.25
 carriage_engine.joint_distance = 0.6
 carriage_engine.pictures = {
   rotated = {
@@ -100,7 +100,8 @@ carriage_engine.pictures = {
         filename = "__carriage__/graphics/entity/carriage-engine/main.png",
         line_length = 8,
         lines_per_file = 16,
-        scale = 0.7,
+        scale = 0.8,
+        shift = { 0, -0.5 },
       },
       {
         priority = "low",
@@ -112,9 +113,10 @@ carriage_engine.pictures = {
         filename = "__carriage__/graphics/entity/carriage-engine/mask.png",
         line_length = 8,
         lines_per_file = 16,
-        scale = 0.7,
+        scale = 0.8,
         apply_runtime_tint = true,
         blend_mode = "additive",
+        shift = { 0, -0.5 },
       },
       {
         priority = "low",
@@ -125,8 +127,9 @@ carriage_engine.pictures = {
         filename = "__carriage__/graphics/entity/carriage-engine/shadow.png",
         line_length = 8,
         lines_per_file = 16,
-        scale = 1.4,
+        scale = 1.6,
         draw_as_shadow = true,
+        shift = { 0, -0.5 },
       }
     }
   }

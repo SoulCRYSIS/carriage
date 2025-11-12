@@ -107,26 +107,8 @@ function processPlacementQueue()
             --game.print("too many carriages connected together")
             cancelPlacement(entity, player, robot)
             cancelPlacement(engine, player)
-          -- check if on rails
-          elseif entity.train.front_end then
-            if not is_route[entity.train.front_end.rail.name] then
-              --game.print("front is not route")
-              cancelPlacement(entity, player, robot)
-              cancelPlacement(engine, player)
-            else
-              --game.print("front is route, okay")
-            end
-          elseif entity.train.back_end then
-            if not is_route[entity.train.back_end.rail.name] then
-              --game.print("back is not route")
-              cancelPlacement(entity, player, robot)
-              cancelPlacement(engine, player)
-            else
-              --game.print("back is route, okay")
-            end
-          else
-            --game.print("Not sure what this means")
           end
+          -- Carriages can now be placed on both routes and normal rails
         end
 
       elseif storage.carriage_engines[entity.name] then
