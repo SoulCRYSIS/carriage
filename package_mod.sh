@@ -27,8 +27,23 @@ done
 
 # Get the directory where the script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-MOD_NAME="carriage"
-MOD_VERSION="0.1.0"
+
+# Read version and name from info.json
+if [ ! -f "$SCRIPT_DIR/info.json" ]; then
+    echo "Error: info.json not found in $SCRIPT_DIR"
+    exit 1
+fi
+
+MOD_NAME=$(grep -o '"name"[[:space:]]*:[[:space:]]*"[^"]*"' "$SCRIPT_DIR/info.json" | sed 's/.*"name"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+MOD_VERSION=$(grep -o '"version"[[:space:]]*:[[:space:]]*"[^"]*"' "$SCRIPT_DIR/info.json" | sed 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+
+if [ -z "$MOD_NAME" ] || [ -z "$MOD_VERSION" ]; then
+    echo "Error: Failed to read mod name or version from info.json"
+    exit 1
+fi
+
+echo "Packaging ${MOD_NAME} v${MOD_VERSION}..."
+
 MOD_FOLDER="${MOD_NAME}_${MOD_VERSION}"
 ZIP_NAME="${MOD_FOLDER}.zip"
 FACTORIO_MODS_DIR="$HOME/Library/Application Support/factorio/mods"

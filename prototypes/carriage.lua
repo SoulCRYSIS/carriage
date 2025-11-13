@@ -5,7 +5,7 @@ local carriage = table.deepcopy(data.raw["cargo-wagon"]["cargo-wagon"])
 carriage.name = "carriage"
 carriage.flags = { "placeable-neutral", "player-creation", "placeable-off-grid" }
 carriage.allow_copy_paste = true
-carriage.minable = { mining_time = 0.5, result = "carriage" }
+carriage.minable = { mining_time = 0.5, result = "carriage-engine" }
 carriage.max_health = 250
 carriage.hidden_in_factoriopedia = true
 carriage.corpse = nil

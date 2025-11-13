@@ -1,6 +1,6 @@
 {
   "name": "carriage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "Carriage Transport",
   "author": "SoulCRYSIS",
   "description": "An early game train system - slower but simpler to setup. Free path crafting.",
